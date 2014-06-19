@@ -31,6 +31,7 @@ public class UserInterests {
 	
 	public UserInterests() {
 		streMap = new HashMap<String,String>();
+		labelMap = new HashMap<String,String>();
 	}
 	
 	
@@ -277,19 +278,19 @@ private String regularExpression(String regex, String base) {
 		File id = new File("id_sample.txt");
 		Scanner scan = new Scanner(id);
 		
-		Map <String,String> streMap = new HashMap<String,String>();
-		Map <String,String> labelMap = new HashMap<String,String>();
-		
-//		while(scan.hasNext()) {
-//			String uid = scan.nextLine();
-//			String strength = ui.getStrength(login, uid);
-//			String label = ui.getLabels(login, uid);
-//			
-//			streMap.put(uid, strength);
-//			labelMap.put(uid, label);
+		//put all users with corresponding labels and strength into maps
+		while(scan.hasNext()) {
+			String uid = scan.nextLine();
+			String strength = ui.getStrength(login, uid);
+			String label = ui.getLabels(login, uid);
 			
-//		}
+			ui.streMap.put(uid, strength);
+			ui.labelMap.put(uid, label);
+			
+		}
 		
-		System.out.println(ui.getLabels(login, "1001662750"));
+		
+		//test
+		//System.out.println(ui.getLabels(login, "1001662750"));
 	}
 }
